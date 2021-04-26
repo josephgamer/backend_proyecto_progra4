@@ -24,6 +24,13 @@ public class Grupo implements Serializable {
     public Grupo() {
         this.curso_id = new Curso();
         this.num_grupo = 0;
+        this.profesor_id = new Profesor();
+    }
+
+    public Grupo(int num_grupo, Curso curso_id, Profesor profesor_id) {
+        this.num_grupo = num_grupo;
+        this.curso_id = curso_id;
+        this.profesor_id = profesor_id;
     }
 
     public int getNum_grupo() {
@@ -48,6 +55,11 @@ public class Grupo implements Serializable {
 
     public void setProfesor_id(Profesor profesor_id) {
         this.profesor_id = profesor_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Grupo{" + "num_grupo=" + num_grupo + ", curso_id=" + curso_id + ", profesor_id=" + profesor_id + '}';
     }
     
     private int num_grupo;
