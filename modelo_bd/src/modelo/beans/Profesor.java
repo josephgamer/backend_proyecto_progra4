@@ -22,6 +22,16 @@ public class Profesor implements Serializable {
         this.email = email;
     }
 
+    public Profesor(int id_profesor, Usuario usuario_id,String apellido1, String apellido2, String nombre, String telefono, String email) {
+        this.id_profesor = id_profesor;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
+        this.usuario_id = usuario_id;
+    }
+
     public Profesor() {
     }
 
@@ -79,6 +89,11 @@ public class Profesor implements Serializable {
 
     public void setUsuario_id(Usuario usuario_id) {
         this.usuario_id = usuario_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor{" + "id_profesor=" + id_profesor + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + ", usuario_id=" + usuario_id + '}';
     }
     
     private int id_profesor;

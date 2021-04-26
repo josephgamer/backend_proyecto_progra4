@@ -12,9 +12,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import modelo.beans.Estudiante;
+import modelo.beans.Profesor;
 import modelo.beans.Usuario;
 import modelo.dao.EstudianteDAO;
 import modelo.dao.EstudiantesBD;
+import modelo.dao.ProfesorDAO;
 
 /**
  *
@@ -39,28 +41,28 @@ public class Modelo_bd {
             System.out.println(db);
 
             //DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            EstudianteDAO bd = new EstudianteDAO();
+            ProfesorDAO bd = new ProfesorDAO();
             //mostrarLista(bd);
             
             Usuario u = new Usuario();
-            u.setId_usuario("122223333");
+            u.setId_usuario("4892");
 
-            Estudiante x = new Estudiante(
-                    122223333,u , 
-                    "González", "Benavides",
-                    "Andrea",
-                    "23554645657", "andrea@crack.com");
+            Profesor x = new Profesor(
+                    4892,u , 
+                    "Herrera", "Hernandez",
+                    "Jorge",
+                    "23554645657", "jorge@estricto.com");
 
             //bd.delete(x.getId());
-            //mostrarLista(bd);
+            mostrarListaProfesor(bd);
 
-            //bd.add(x.getId_estudiante(), x);
-            mostrarLista(bd);
+            bd.add(x.getId_profesor(), x);
+            mostrarListaProfesor(bd);
 
             x.setApellido1("Corrales");
             x.setApellido2("Montero");
-            bd.update(x.getId_estudiante(), x);
-            mostrarLista(bd);
+            bd.update(x.getId_profesor(), x);
+            mostrarListaProfesor(bd);
 
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
@@ -71,6 +73,14 @@ public class Modelo_bd {
         List<Estudiante> estudiantes = bd.listAll();
         for (Estudiante estudiante : estudiantes) {
             System.out.println(estudiante.toString());
+        }
+        System.out.println();
+    }
+    
+    private static void mostrarListaProfesor(ProfesorDAO bd) throws IOException, SQLException {
+        List<Profesor> profesores = bd.listAll();
+        for (Profesor profesor : profesores) {
+            System.out.println(profesor.toString());
         }
         System.out.println();
     }
