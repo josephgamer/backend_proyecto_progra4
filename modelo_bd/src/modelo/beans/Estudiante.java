@@ -18,7 +18,17 @@ public class Estudiante implements Serializable {
         this.apellido2 = apellido2;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.email = email;
+        this.e_mail = email;
+    }
+
+    public Estudiante(int id_estudiante, Usuario usuario_id ,String apellido1, String apellido2, String nombre, String telefono, String email) {
+        this.id_estudiante = id_estudiante;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.e_mail = email;
+        this.usuario_id = usuario_id;
     }
 
     public Estudiante() {
@@ -27,7 +37,7 @@ public class Estudiante implements Serializable {
         this.apellido2 = "-";
         this.nombre = "-";
         this.telefono = "-";
-        this.email = "-";
+        this.e_mail = "-";
     }
 
     public int getId_estudiante() {
@@ -71,7 +81,7 @@ public class Estudiante implements Serializable {
     }
 
     public String getEmail() {
-        return email;
+        return e_mail;
     }
 
     public Usuario getUsuario_id() {
@@ -83,7 +93,12 @@ public class Estudiante implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.e_mail = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" + "id_estudiante=" + id_estudiante + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre + ", telefono=" + telefono + ", e_mail=" + e_mail + ", usuario_id=" + usuario_id + '}';
     }
     
     private int id_estudiante;
@@ -91,7 +106,7 @@ public class Estudiante implements Serializable {
     private String apellido2;
     private String nombre;
     private String telefono;
-    private String email;
+    private String e_mail;
     private Usuario usuario_id;
 }
 
