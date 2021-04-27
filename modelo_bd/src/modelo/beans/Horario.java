@@ -74,6 +74,11 @@ public class Horario implements Serializable {
     public void setHora(int hora) {
         this.hora = hora;
     }
+
+    @Override
+    public String toString() {
+        return "Horario{" + "seq=" + seq + ", grupo_num=" + grupo_num + ", grupo_curso_id=" + grupo_curso_id + ", dia=" + dia + ", hora=" + hora + '}';
+    }
     
     private int seq;
     private Grupo grupo_num;
