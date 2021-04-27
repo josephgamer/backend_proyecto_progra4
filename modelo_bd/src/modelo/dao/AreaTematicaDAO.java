@@ -17,7 +17,7 @@ import modelo.dao.crud.AreaTematicaCRUD;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class AreaTematicaDAO extends AbsAreaTematicaDAO <Integer, AreaTematica>{
 

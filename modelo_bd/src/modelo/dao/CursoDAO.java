@@ -16,7 +16,7 @@ import modelo.dao.crud.CursoCRUD;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class CursoDAO extends AbsCursoDAO<Integer, Curso>{
 

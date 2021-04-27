@@ -9,7 +9,7 @@ import cr.ac.una.db.dao.crud.AbstractCRUD;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class CursoCRUD extends AbstractCRUD {
 

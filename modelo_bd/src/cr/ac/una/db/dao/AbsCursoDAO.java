@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public abstract class AbsCursoDAO<K, V> implements DAO<K,V>{
     

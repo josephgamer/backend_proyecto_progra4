@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public abstract class AbsAreaTematicaDAO<K, V> implements DAO<K, V> {
     

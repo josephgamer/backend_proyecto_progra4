@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class AreasTematicasBD extends Database{
     public AreasTematicasBD() throws IOException {

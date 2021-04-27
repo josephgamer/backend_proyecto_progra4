@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class CursosBD extends Database{
     public CursosBD() throws IOException {

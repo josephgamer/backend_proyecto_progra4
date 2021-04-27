@@ -18,7 +18,7 @@ import modelo.dao.crud.AdministradorCRUD;
 
 /**
  *
- * @author Greivin
+ * @author Esteban
  */
 public class AdministradorDAO extends AbsAdministradorDAO<Integer, Administrador>{
 
