@@ -6,13 +6,14 @@
 package modelo.beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author Esteban
  */
 public class Profesor implements Serializable {
-    
+
     public Profesor(int id_profesor, String apellido1, String apellido2, String nombre, String telefono, String email) {
         this.id_profesor = id_profesor;
         this.apellido1 = apellido1;
@@ -22,7 +23,7 @@ public class Profesor implements Serializable {
         this.email = email;
     }
 
-    public Profesor(int id_profesor, Usuario usuario_id,String apellido1, String apellido2, String nombre, String telefono, String email) {
+    public Profesor(int id_profesor, Usuario usuario_id, String apellido1, String apellido2, String nombre, String telefono, String email) {
         this.id_profesor = id_profesor;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
@@ -93,9 +94,27 @@ public class Profesor implements Serializable {
 
     @Override
     public String toString() {
-        return "Profesor{" + "id_profesor=" + id_profesor + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + ", usuario_id=" + usuario_id + '}';
+        return "Profesor{" + "id_profesor=" + id_profesor + ", apellido1="
+                + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre
+                + ", telefono=" + telefono + ", email=" + email + ", usuario_id="
+                + usuario_id + '}';
     }
-    
+
+    public String toStringHTML() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getId_profesor()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEmail()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getTelefono()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+
     private int id_profesor;
     private String apellido1;
     private String apellido2;
@@ -103,5 +122,5 @@ public class Profesor implements Serializable {
     private String telefono;
     private String email;
     private Usuario usuario_id;
-    
+
 }
