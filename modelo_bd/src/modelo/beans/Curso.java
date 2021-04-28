@@ -47,6 +47,18 @@ public class Curso implements Serializable{
     public void setAreaTematica_id(AreaTematica areaTematica_id) {
         this.areaTematica_id = areaTematica_id;
     }
+    
+     public String toStringHTML() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getCurso_descrip()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+
 
     private int id_curso;
     private String curso_descrip;
