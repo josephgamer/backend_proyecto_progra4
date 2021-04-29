@@ -38,4 +38,9 @@ public class EspecialidadCRUD extends AbstractCRUD{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    protected static final String ADD_CMD
+            = "INSERT INTO eif209_2021_01.especialidad "
+            + "(profesor_id_profesor, area_tematica__id) "
+            + "VALUES (?, ?); ";
+    
 }

@@ -29,7 +29,8 @@ public class EspecialidadDAO extends AbsEspecialidadDAO<Integer, Especialidad>{
 
     @Override
     public void setAddParameters(PreparedStatement stm, Integer id, Especialidad value) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        stm.setInt(1, value.getProfe_id_profe().getId_profesor());
+        stm.setInt(2, value.getArea_tematica_id().getId_area());
     }
 
     @Override
