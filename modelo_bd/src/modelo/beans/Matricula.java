@@ -27,6 +27,12 @@ public class Matricula implements Serializable{
         this.nota = nota;
     }
 
+    public Matricula(int grupo_num, int curso_id, Estudiante estudiante_id) {
+        this.grupo_num = grupo_num;
+        this.curso_id = curso_id;
+        this.estudiante_id = estudiante_id;
+    }
+
     public int getMatricula_id() {
         return matricula_id;
     }
