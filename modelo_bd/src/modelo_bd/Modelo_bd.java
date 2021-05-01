@@ -12,8 +12,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import modelo.beans.Estudiante;
+import modelo.beans.Horario;
 import modelo.beans.Profesor;
 import modelo.beans.Usuario;
+import modelo.dao.EspecialBD;
+import modelo.dao.EspecialDAO;
 import modelo.dao.EstudianteDAO;
 import modelo.dao.EstudiantesBD;
 import modelo.dao.ProfesorDAO;
@@ -36,25 +39,26 @@ public class Modelo_bd {
         }*/
         
         try {
-            Database db = new EstudiantesBD() {
+            Database db = new EspecialBD() {
             };
             System.out.println(db);
 
             //DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            ProfesorDAO bd = new ProfesorDAO();
-            //mostrarLista(bd);
+            //ProfesorDAO bd = new ProfesorDAO();
+            EspecialDAO bd = new EspecialDAO();
+            mostrarListaCursos(bd);
             
-            Usuario u = new Usuario();
-            u.setId_usuario("4892");
+            /*Usuario u = new Usuario();
+            u.setId_usuario("4892");*/
 
-            Profesor x = new Profesor(
+            /*Profesor x = new Profesor(
                     4892,u , 
                     "Herrera", "Hernandez",
                     "Jorge",
-                    "23554645657", "jorge@estricto.com");
+                    "23554645657", "jorge@estricto.com");*/
 
             //bd.delete(x.getId());
-            mostrarListaProfesor(bd);
+            /*mostrarListaProfesor(bd);
 
             bd.add(x.getId_profesor(), x);
             mostrarListaProfesor(bd);
@@ -62,7 +66,7 @@ public class Modelo_bd {
             x.setApellido1("Corrales");
             x.setApellido2("Montero");
             bd.update(x.getId_profesor(), x);
-            mostrarListaProfesor(bd);
+            mostrarListaProfesor(bd);*/
 
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
@@ -81,6 +85,14 @@ public class Modelo_bd {
         List<Profesor> profesores = bd.listAll();
         for (Profesor profesor : profesores) {
             System.out.println(profesor.toString());
+        }
+        System.out.println();
+    }
+    
+    private static void mostrarListaCursos(EspecialDAO bd) throws IOException, SQLException {
+        List<Horario> cursos = bd.listAll();
+        for (Horario curso : cursos) {
+            System.out.println(curso.toStringHTML());
         }
         System.out.println();
     }

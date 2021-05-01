@@ -34,11 +34,11 @@ public class EspecialDAO extends AbsEspecialDAO<Integer, Horario>{
         AreaTematica area = new AreaTematica();
         grupo.setNum_grupo(rs.getInt("num_grupo"));
         curso.setId_curso(rs.getInt("id_curso"));
-        profesor.setNombre("nombre");
-        profesor.setApellido1("apellido1");
-        profesor.setApellido2("apellido2");
-        curso.setCurso_descrip("descripcion");
-        area.setTematica_descrip("descripcion");
+        profesor.setNombre(rs.getString("nombre"));
+        profesor.setApellido1(rs.getString("apellido1"));
+        profesor.setApellido2(rs.getString("apellido2"));
+        curso.setCurso_descrip(rs.getString("descripcion"));
+        area.setTematica_descrip(rs.getString("descripcion_area"));
         curso.setAreaTematica_id(area);
         grupo.setProfesor_id(profesor);
         return new Horario(

@@ -40,7 +40,7 @@ public class EspecialCRUD extends AbstractCRUD {
 
     protected static final String LIST_CMD
             = "select h.dia, h.hora, g.num_grupo, c.id_curso, p.nombre, p.apellido1, p.apellido2,\n"
-            + "c.descripcion,a.descripcion from horario h inner join grupo g\n"
+            + "c.descripcion,a.descripcion_area from horario h inner join grupo g\n"
             + "on h.grupo_num=g.num_grupo and h.grupo_curso_id=g.curso_id inner join\n"
             + "profesor p on g.profesor_id=p.id_profesor inner join curso c on\n"
             + "g.curso_id=c.id_curso inner join area_tematica a on c.area_tematica_id=a.id_area; ";
