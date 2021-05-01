@@ -27,6 +27,13 @@ public class Horario implements Serializable {
         this.hora = hora;
     }
 
+    public Horario(Grupo grupo_num, Curso grupo_curso_id, int dia, int hora) {
+        this.grupo_num = grupo_num;
+        this.grupo_curso_id = grupo_curso_id;
+        this.dia = dia;
+        this.hora = hora;
+    }
+
     public Horario() {
         this.seq = 0;
         this.grupo_num = new Grupo();
@@ -78,6 +85,25 @@ public class Horario implements Serializable {
     @Override
     public String toString() {
         return "Horario{" + "seq=" + seq + ", grupo_num=" + grupo_num + ", grupo_curso_id=" + grupo_curso_id + ", dia=" + dia + ", hora=" + hora + '}';
+    }
+    
+    public String toStringHTML() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getDia()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getHora()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getNum_grupo()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getCurso_descrip()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
+        
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
     }
     
     private int seq;

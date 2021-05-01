@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.dao.CursoDAO;
+import modelo.dao.EspecialDAO;
 
 /**
  *
@@ -20,8 +21,10 @@ public class ConjuntoCurso implements Serializable {
 
     public ConjuntoCurso() {
         this.cursos = null;
+        this.especial = null;
         try {
             this.cursos = new CursoDAO();
+            this.especial = new EspecialDAO();
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
@@ -70,10 +73,50 @@ public class ConjuntoCurso implements Serializable {
 
         return r.toString();
     }
+    
+    public String toStringHTML2() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaCursos\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Dia"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Hora"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Grupo"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre Profesor"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Primer Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Segundo Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Materia del curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Area Tematica del curso"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Horario> t = getListaHoraiosCursos();
+        for (Horario c : t) {
+            r.append(c.toStringHTML());
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
 
     public List<Curso> getListaCurso() {
         try {
             return cursos.listAll();
+        } catch (IOException | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+    public List<Horario> getListaHoraiosCursos() {
+        try {
+            return especial.listAll();
         } catch (IOException | SQLException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
             return new ArrayList<>();
@@ -85,5 +128,6 @@ public class ConjuntoCurso implements Serializable {
     }
 
     private CursoDAO cursos;
+    private EspecialDAO especial;
 }
  
