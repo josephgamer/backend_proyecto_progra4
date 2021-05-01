@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import modelo.dao.CursoDAO;
 import modelo.dao.EspecialDAO;
 
@@ -17,6 +19,7 @@ import modelo.dao.EspecialDAO;
  *
  * @author YENDRI
  */
+@XmlRootElement(name = "lista-cursos")
 public class ConjuntoCurso implements Serializable {
 
     public ConjuntoCurso() {
@@ -124,9 +127,10 @@ public class ConjuntoCurso implements Serializable {
     }
 
     public String getTabla() {
-        return toStringHTML();
+        return toStringHTML2();
     }
 
+    @XmlTransient
     private CursoDAO cursos;
     private EspecialDAO especial;
 }
