@@ -8,6 +8,7 @@ package modelo.dao;
 import cr.ac.una.db.Database;
 import cr.ac.una.db.dao.AbsCursoDAO;
 import cr.ac.una.db.dao.crud.AbstractCRUD;
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ import modelo.dao.crud.CursoCRUD;
  *
  * @author Esteban
  */
-public class CursoDAO extends AbsCursoDAO<Integer, Curso>{
+public class CursoDAO extends AbsCursoDAO<Integer, Curso> implements Serializable{
 
     public CursoDAO() throws Exception{
         super(new CursosBD(), new CursoCRUD());

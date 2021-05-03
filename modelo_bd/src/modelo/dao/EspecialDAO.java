@@ -6,6 +6,7 @@
 package modelo.dao;
 
 import cr.ac.una.db.dao.AbsEspecialDAO;
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ import modelo.dao.crud.EspecialCRUD;
  *
  * @author Esteban
  */
-public class EspecialDAO extends AbsEspecialDAO<Integer, Horario>{
+public class EspecialDAO extends AbsEspecialDAO<Integer, Horario> implements Serializable{
     
     public EspecialDAO() throws Exception{
         super(new EspecialBD(), new EspecialCRUD());

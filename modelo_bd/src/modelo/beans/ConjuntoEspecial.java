@@ -10,72 +10,42 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.dao.CursoDAO;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import modelo.dao.EspecialDAO;
 
 /**
  *
- * @author YENDRI
+ * @author Esteban
  */
-
-public class ConjuntoCurso implements Serializable {
-
-    public ConjuntoCurso() {
+@XmlRootElement(name = "lista-cursos")
+public class ConjuntoEspecial implements Serializable{
+    
+    @XmlTransient
+    private EspecialDAO cursos;
+    
+    public ConjuntoEspecial() {
         this.cursos = null;
-        this.especial = null;
         try {
-            this.cursos = new CursoDAO();
-            this.especial = new EspecialDAO();
+            this.cursos = new EspecialDAO();
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
     }
-
-    public void agregar(Curso nuevoCurso) throws SQLException, IOException {
-        cursos.add(nuevoCurso.getId_curso(), nuevoCurso);
-    }
-
-    public void borrarTodos() {
-        throw new UnsupportedOperationException();
-    }
-
+    
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder();
         r.append("[\n");
-        List<Curso> t = getListaCurso();
-        for (Curso c : t) {
+        List<Horario> t = getListaHoraiosCursos();
+        for (Horario c : t) {
             r.append(String.format("\t%s,%n", c));
         }
         r.append("]");
         return r.toString();
     }
-
-    public String toStringHTML() {
-        StringBuilder r = new StringBuilder();
-        r.append("\t<table class=\"tablaCursos\">\n");
-
-        r.append("\t\t<thead>\n");
-        r.append("\t\t\t<tr>\n");
-        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Id"));
-        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Descripcion"));
-        r.append("\t\t\t<tr>\n");
-        r.append("\t\t</thead>\n");
-
-        r.append("\t\t<tbody>\n");
-        List<Curso> t = getListaCurso();
-        for (Curso c : t) {
-            r.append(c.toStringHTML());
-        }
-        r.append("\t\t</tbody>\n");
-
-        r.append("\t\t<tfoot></tfoot>\n");
-        r.append("\t</table>\n");
-
-        return r.toString();
-    }
     
-    public String toStringHTML2() {
+    public String toStringHTML() {
         StringBuilder r = new StringBuilder();
         r.append("\t<table class=\"tablaCursos\">\n");
 
@@ -105,8 +75,8 @@ public class ConjuntoCurso implements Serializable {
 
         return r.toString();
     }
-
-    public List<Curso> getListaCurso() {
+    
+    public List<Horario> getListaHoraiosCursos() {
         try {
             return cursos.listAll();
         } catch (IOException | SQLException ex) {
@@ -115,21 +85,7 @@ public class ConjuntoCurso implements Serializable {
         }
     }
     
-    public List<Horario> getListaHoraiosCursos() {
-        try {
-            return especial.listAll();
-        } catch (IOException | SQLException ex) {
-            System.err.printf("Excepción: '%s'%n", ex.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
     public String getTabla() {
-        return toStringHTML2();
+        return toStringHTML();
     }
-
-   
-    private CursoDAO cursos;
-    private EspecialDAO especial;
 }
- 
