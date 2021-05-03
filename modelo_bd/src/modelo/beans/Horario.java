@@ -100,7 +100,10 @@ public class Horario implements Serializable {
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido2()));
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getCurso_descrip()));
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
-        
+        r.append(String.format(
+                "\t\t\t\t<td><form action='%s'><button name='id_persona' value='%d'>Matricular</button></td></form>\n",
+                "ServicioBorrar",
+                getSeq()));
 
         r.append("\t\t\t</tr>\n");
         return r.toString();
