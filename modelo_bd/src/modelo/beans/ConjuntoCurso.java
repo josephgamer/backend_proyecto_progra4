@@ -17,7 +17,6 @@ import modelo.dao.EspecialDAO;
  *
  * @author YENDRI
  */
-
 public class ConjuntoCurso implements Serializable {
 
     public ConjuntoCurso() {
@@ -74,7 +73,7 @@ public class ConjuntoCurso implements Serializable {
 
         return r.toString();
     }
-    
+
     public String toStringHTML2() {
         StringBuilder r = new StringBuilder();
         r.append("\t<table class=\"tablaCursos\">\n");
@@ -106,6 +105,49 @@ public class ConjuntoCurso implements Serializable {
         return r.toString();
     }
 
+    public String toStringHTMLBusqueda(String descripcion) {
+        String minuscula = "";
+        String result = "";
+        if (!descripcion.isEmpty()) {
+            minuscula = descripcion.toLowerCase();
+            char[] arr = minuscula.toCharArray();
+            arr[0] = Character.toUpperCase(arr[0]);
+            result = new String(arr);
+        }
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaCursos\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Dia"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Hora"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Grupo"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre Profesor"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Primer Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Segundo Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Materia del curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Area Tematica del curso"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Horario> t = getListaHoraiosCursos();
+        for (Horario c : t) {
+            if (c.getGrupo_curso_id().getAreaTematica_id().getTematica_descrip().equals(result)
+                    || c.getGrupo_curso_id().getCurso_descrip().equals(result)) {
+                r.append(c.toStringHTML());
+            }
+
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
+
     public List<Curso> getListaCurso() {
         try {
             return cursos.listAll();
@@ -114,7 +156,7 @@ public class ConjuntoCurso implements Serializable {
             return new ArrayList<>();
         }
     }
-    
+
     public List<Horario> getListaHoraiosCursos() {
         try {
             return especial.listAll();
@@ -128,8 +170,6 @@ public class ConjuntoCurso implements Serializable {
         return toStringHTML2();
     }
 
-   
     private CursoDAO cursos;
     private EspecialDAO especial;
 }
- 
