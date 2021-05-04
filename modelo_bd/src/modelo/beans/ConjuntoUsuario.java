@@ -45,4 +45,21 @@ public class ConjuntoUsuario implements Serializable{
         }
         return false;
     }
+    
+    public Usuario obtenerRol(String id, String clave){
+        List<Usuario> existe = null;
+        try {
+            existe = user.listAll();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConjuntoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ConjuntoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (Usuario u : existe) {
+            if (u.getClave().equals(clave) && u.getId_usuario().equals(id)) {
+                return u;
+            }
+        }
+        return null;
+    }
 }

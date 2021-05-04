@@ -32,6 +32,7 @@ public class UsuarioDAO extends AbsUsuarioDAO<String, Usuario>{
         user.setId_usuario(rs.getString("id_usuario"));
         user.setUltimo_acceso(rs.getDate("ultimo_aceso"));
         user.setActivo(rs.getBoolean("activo"));
+        user.setRol_id(rol);
         return user;
     }
 
