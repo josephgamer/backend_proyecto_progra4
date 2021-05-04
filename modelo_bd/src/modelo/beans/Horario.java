@@ -101,9 +101,31 @@ public class Horario implements Serializable {
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getCurso_descrip()));
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
         r.append(String.format(
-                "\t\t\t\t<td><form action='%s'><button name='id_persona' value='%d'>Matricular</button></td></form>\n",
-                "ServicioBorrar",
-                getSeq()));
+                "\t\t\t\t<td><form action='%s'><button name='id_numGrupo' value='%d' >Matricular</button></td></form>\n",
+                "ServicioMatricula",
+                getGrupo_num().getNum_grupo()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+    
+    public String toStringHTML2() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getDia()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getHora()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getNum_grupo()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getCurso_descrip()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
+        r.append(String.format(
+                "\t\t\t\t<td><form action='%s'><button name='id_numGrupo' value='%d' >Matricular</button></td></form>\n",
+                "index.jsp",
+                getGrupo_num().getNum_grupo()));
 
         r.append("\t\t\t</tr>\n");
         return r.toString();
