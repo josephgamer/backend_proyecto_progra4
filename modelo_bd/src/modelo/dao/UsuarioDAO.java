@@ -9,6 +9,7 @@ import cr.ac.una.db.dao.AbsUsuarioDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.beans.Rol;
 import modelo.beans.Usuario;
 import modelo.dao.crud.UsuarioCRUD;
 
@@ -24,7 +25,14 @@ public class UsuarioDAO extends AbsUsuarioDAO<String, Usuario>{
 
     @Override
     public Usuario getRecord(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Usuario user = new Usuario();
+        Rol rol = new Rol();
+        rol.setId_rol(rs.getInt("rol_id"));
+        user.setClave(rs.getString("clave"));
+        user.setId_usuario(rs.getString("id_usuario"));
+        user.setUltimo_acceso(rs.getDate("ultimo_aceso"));
+        user.setActivo(rs.getBoolean("activo"));
+        return user;
     }
 
     @Override
@@ -38,8 +46,8 @@ public class UsuarioDAO extends AbsUsuarioDAO<String, Usuario>{
 
     @Override
     public void setUpdateParameters(PreparedStatement stm, String id, Usuario value) throws SQLException {
-        stm.setString(1, value.getClave());
-        stm.setBoolean(2, value.isActivo());
+        stm.setBoolean(1, value.isActivo());
+        stm.setDate(2, new java.sql.Date(value.getUltimo_acceso().getTime()));
         stm.setString(5, id);
     }
     

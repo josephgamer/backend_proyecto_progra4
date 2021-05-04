@@ -30,12 +30,16 @@ public class UsuarioCRUD extends AbstractCRUD{
 
     @Override
     public String getUpdateCmd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return UPDATE_CMD;
     }
 
     @Override
     public String getDeleteCmd() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static String existeUsuario() {
+        return SELECT_USER;
     }
     
     protected static final String LIST_CMD
@@ -50,7 +54,10 @@ public class UsuarioCRUD extends AbstractCRUD{
     
     protected static final String UPDATE_CMD
             = "UPDATE usuario "
-            + "SET activo = ?, clave = ? "
+            + "SET activo = ?, ultimo_aceso = ? "
             + "WHERE id_usuario = ?; ";
+    
+    protected static final String SELECT_USER 
+            = "select id_usuario, clave from usuario where id_usuario = ? and clave = ?;";
     
 }
