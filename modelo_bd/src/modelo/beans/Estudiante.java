@@ -38,6 +38,7 @@ public class Estudiante implements Serializable {
         this.nombre = "-";
         this.telefono = "-";
         this.e_mail = "-";
+        this.usuario_id = new Usuario();
     }
 
     public int getId_estudiante() {
@@ -99,6 +100,21 @@ public class Estudiante implements Serializable {
     @Override
     public String toString() {
         return "Estudiante{" + "id_estudiante=" + id_estudiante + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre + ", telefono=" + telefono + ", e_mail=" + e_mail + ", usuario_id=" + usuario_id + '}';
+    }
+    
+    public String toStringHTML() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getId_estudiante()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getTelefono()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEmail()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
     }
     
     private int id_estudiante;
