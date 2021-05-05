@@ -102,7 +102,7 @@ public class Horario implements Serializable {
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
         r.append(String.format(
                 "\t\t\t\t<td><form action='%s'><button name='id_numGrupo' value='%d' >Matricular</button></td></form>\n",
-                "ServicioMatricula",
+                "SolicitarMatricula.jsp",
                 getGrupo_num().getNum_grupo()));
 
         r.append("\t\t\t</tr>\n");
