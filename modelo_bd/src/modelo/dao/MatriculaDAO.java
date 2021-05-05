@@ -9,7 +9,14 @@ import cr.ac.una.db.dao.AbsMatriculaDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.beans.AreaTematica;
+import modelo.beans.Curso;
+import modelo.beans.Estado;
+import modelo.beans.Estudiante;
+import modelo.beans.Grupo;
+import modelo.beans.Horario;
 import modelo.beans.Matricula;
+import modelo.beans.Profesor;
 import modelo.dao.crud.MatriculaCRUD;
 
 /**
@@ -24,7 +31,28 @@ public class MatriculaDAO extends AbsMatriculaDAO<Integer, Matricula>{
 
     @Override
     public Matricula getRecord(ResultSet rs) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Grupo grupo = new Grupo();
+        Curso curso = new Curso();
+        Profesor profesor = new Profesor();
+        AreaTematica area = new AreaTematica();
+        Estado estado = new Estado();
+        Estudiante estudiante = new Estudiante();
+        
+        grupo.setNum_grupo(rs.getInt("num_grupo"));
+        curso.setId_curso(rs.getInt("id_curso"));
+        profesor.setNombre(rs.getString("nombre"));
+        profesor.setApellido1(rs.getString("apellido1"));
+        profesor.setApellido2(rs.getString("apellido2"));
+        curso.setCurso_descrip(rs.getString("descripcion"));
+        area.setTematica_descrip(rs.getString("descripcion_area"));
+        estado.setEst_descripcion(rs.getString("descripcion"));
+        estudiante.setId_estudiante(rs.getInt("estudiante_id"));
+        
+        curso.setAreaTematica_id(area);
+        grupo.setProfesor_id(profesor);
+        
+        return new Matricula(grupo.getNum_grupo(), curso.getId_curso(), estudiante, rs.getInt("nota"), estado);
+        
     }
 
     @Override

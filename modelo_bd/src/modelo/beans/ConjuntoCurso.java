@@ -247,6 +247,25 @@ public class ConjuntoCurso implements Serializable {
     public String getTabla2() {
         return toStringHTML3();
     }
+    
+    public List<Curso> getListaCursos(){
+        try {
+            return cursos.listAll();
+        } catch (IOException | SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+    public Curso obtenerCurso(int id_curso){
+        
+        for(Curso c: getListaCursos()){
+            if(c.getId_curso() == id_curso){
+                return c;
+            }
+        }
+        return null;
+    }
 
     private CursoDAO cursos;
     private EspecialDAO especial;

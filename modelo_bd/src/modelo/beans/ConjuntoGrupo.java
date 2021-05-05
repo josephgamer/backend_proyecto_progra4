@@ -46,4 +46,13 @@ public class ConjuntoGrupo implements Serializable{
             return new ArrayList<>();
         }
     }
+    
+    public Grupo getGrupo(int id_grupo){
+        for(Grupo g: getListaCurso()){
+            if(g.getNum_grupo() == id_grupo){
+                return g;
+            }
+        }
+        return null;
+    }
 }
