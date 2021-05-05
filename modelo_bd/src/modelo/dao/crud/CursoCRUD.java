@@ -37,20 +37,19 @@ public class CursoCRUD extends AbstractCRUD {
     public String getDeleteCmd() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     protected static final String LIST_CMD
-            = "SELECT "
-            + "id_curso, descripcion, area_tematica_id "
-            + "FROM curso; ";
-    
+            = "SELECT c.id_curso, c.descripcion, c.area_tematica_id, a.descripcion_area FROM curso c\n"
+            + " inner join area_tematica a on c.area_tematica_id=a.id_area; ";
+
     protected static final String ADD_CMD
             = "INSERT INTO eif209_2021_01.curso "
             + "(id_curso, descripcion, area_tematica_id) "
             + "VALUES (?, ?, ?); ";
-    
+
     protected static final String UPDATE_CMD
             = "UPDATE curso "
             + "SET descripcion = ? "
             + "WHERE id_curso = ?; ";
-    
+
 }

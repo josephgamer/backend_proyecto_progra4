@@ -39,7 +39,7 @@ public class MatriculaDAO extends AbsMatriculaDAO<Integer, Matricula>{
         Estudiante estudiante = new Estudiante();
         
         grupo.setNum_grupo(rs.getInt("num_grupo"));
-        curso.setId_curso(rs.getInt("id_curso"));
+        curso.setId_curso(rs.getInt("curso_id"));
         profesor.setNombre(rs.getString("nombre"));
         profesor.setApellido1(rs.getString("apellido1"));
         profesor.setApellido2(rs.getString("apellido2"));
@@ -66,7 +66,7 @@ public class MatriculaDAO extends AbsMatriculaDAO<Integer, Matricula>{
 
     @Override
     public void setUpdateParameters(PreparedStatement stm, Integer id, Matricula value) throws SQLException {
-        
+        stm.setInt(1, value.getEstudiante_id().getId_estudiante());
     }
     
 }

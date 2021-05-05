@@ -31,6 +31,9 @@ public class GrupoDAO extends AbsGrupoDAO<Integer,Grupo> {
         c.setId_curso(rs.getInt("curso_id"));
         Profesor p = new Profesor();
         p.setId_profesor(rs.getInt("profesor_id"));
+        p.setApellido1(rs.getString("apellido1"));
+        p.setApellido2(rs.getString("apellido2"));
+        p.setNombre(rs.getString("nombre"));
         return new Grupo(
                 rs.getInt("num_Grupo"),
                 c,

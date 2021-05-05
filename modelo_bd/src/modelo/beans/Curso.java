@@ -19,6 +19,12 @@ public class Curso implements Serializable{
         this.curso_descrip = curso_descrip;
     }
 
+    public Curso(int id_curso, String curso_descrip, AreaTematica areaTematica_id) {
+        this.id_curso = id_curso;
+        this.curso_descrip = curso_descrip;
+        this.areaTematica_id = areaTematica_id;
+    }
+
     public Curso() {
         this.id_curso = 0;
         this.curso_descrip = "-";

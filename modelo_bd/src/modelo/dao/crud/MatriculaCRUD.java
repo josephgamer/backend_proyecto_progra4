@@ -44,9 +44,13 @@ public class MatriculaCRUD extends AbstractCRUD {
             + "VALUES (?, ?, ?, ?, ?); ";
 
     protected static final String LIST_CMD
-            = "select m.estudiante_id, g.num_grupo, a.descripcion_area, c.descripcion, p.nombre, p.apellido1, p.apellido2, m.nota, e.descripcion "
-            + "from grupo g inner join curso c on g.curso_id = c.id_curso join profesor p on g.profesor_id = p.id_profesor "
-            + "inner join area_tematica a on c.area_tematica_id = a.id_area inner join estado e inner join matricula m on e.id_estado = m.estado_id "
-            + "and m.estudiante_id = ?; ";
-    
+            = "select m.estudiante_id, m.curso_id,g.num_grupo, a.descripcion_area, c.descripcion, p.nombre, p.apellido1, p.apellido2, m.nota, e.descripcion \n"
+            + "		from grupo g inner join curso c on g.curso_id = c.id_curso join profesor p on g.profesor_id = p.id_profesor \n"
+            + "		inner join area_tematica a on c.area_tematica_id = a.id_area inner join estado e inner join matricula m on e.id_estado = m.estado_id \n"
+            + " inner join estudiante es on m.estudiante_id=es.id_estudiante;";
+//            = "select m.estudiante_id, g.num_grupo, a.descripcion_area, c.descripcion, p.nombre, p.apellido1, p.apellido2, m.nota, e.descripcion "
+//            + "from grupo g inner join curso c on g.curso_id = c.id_curso join profesor p on g.profesor_id = p.id_profesor "
+//            + "inner join area_tematica a on c.area_tematica_id = a.id_area inner join estado e inner join matricula m on e.id_estado = m.estado_id "
+//            + "and m.estudiante_id = ?; ";
+
 }
