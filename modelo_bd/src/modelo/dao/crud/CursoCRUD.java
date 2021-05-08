@@ -39,7 +39,7 @@ public class CursoCRUD extends AbstractCRUD {
     }
 
     protected static final String LIST_CMD
-            = "SELECT c.id_curso, c.descripcion, c.area_tematica_id, a.descripcion_area FROM curso c\n"
+            = "SELECT c.id_curso, c.descripcion, c.area_tematica_id, a.descripcion_area FROM  curso c\n"
             + " inner join area_tematica a on c.area_tematica_id=a.id_area; ";
 
     protected static final String ADD_CMD

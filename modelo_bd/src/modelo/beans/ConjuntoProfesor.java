@@ -76,6 +76,96 @@ public class ConjuntoProfesor implements Serializable {
         return r.toString();
     }
 
+    
+    ////////////////Nuevo
+    
+      public String toStringHTMLBusqueda(String descripcion) {
+        String minuscula = "";
+        String result = "";
+        if (!descripcion.isEmpty()) {
+            minuscula = descripcion.toLowerCase();
+            char[] arr = minuscula.toCharArray();
+            arr[0] = Character.toUpperCase(arr[0]);
+            result = new String(arr);
+        }
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaCursos\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Id"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Apellido 1"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Apellido 2"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Correo"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Télefono"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Profesor> t = getListaProfesor();
+        for (Profesor c : t) {
+            if (c.getNombre().equals(result)) {
+                r.append(c.toStringHTML());
+            }
+
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
+    
+    
+    
+      public String toStringHTMLBusqueda2(String descripcion) {
+        String minuscula = "";
+        String result = "";
+        if (!descripcion.isEmpty()) {
+            minuscula = descripcion.toLowerCase();
+            char[] arr = minuscula.toCharArray();
+            arr[0] = Character.toUpperCase(arr[0]);
+            result = new String(arr);
+        }
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaProfesores\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Id"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Apellido 1"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Apellido 2"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Correo"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Télefono"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Profesor> t = getListaProfesor();
+        for (Profesor c : t) {
+            if (c.getNombre().equals(result)) {
+                r.append(c.toStringHTML());
+            }
+
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
+    
+    
+    
+    
+    
+    ///////////////////////Nuevo
+    
+    
     public List<Profesor> getListaProfesor() {
         try {
             return profesores.listAll();

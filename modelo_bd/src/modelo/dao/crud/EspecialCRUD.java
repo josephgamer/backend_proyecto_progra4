@@ -44,5 +44,4 @@ public class EspecialCRUD extends AbstractCRUD {
             + "on h.grupo_num=g.num_grupo and h.grupo_curso_id=g.curso_id inner join\n"
             + "profesor p on g.profesor_id=p.id_profesor inner join curso c on\n"
             + "g.curso_id=c.id_curso inner join area_tematica a on c.area_tematica_id=a.id_area; ";
-
 }
