@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.beans.AreaTematica;
 import modelo.beans.Curso;
+import modelo.beans.Grupo;
 import modelo.dao.crud.CursoCRUD;
 
 /**
@@ -29,12 +30,15 @@ public class CursoDAO extends AbsCursoDAO<Integer, Curso> implements Serializabl
     @Override
     public Curso getRecord(ResultSet rs) throws SQLException {
         AreaTematica area = new AreaTematica();
+        //Grupo grupo = new Grupo();
         area.setId_area(rs.getInt("area_tematica_id"));
         area.setTematica_descrip(rs.getString("descripcion_area"));
+        //grupo.setNum_grupo(rs.getInt("grupo_num"));
         return new Curso(
                 rs.getInt("id_curso"),
                 rs.getString("descripcion"),
                 area
+                //grupo
         );
     }
 
@@ -43,12 +47,15 @@ public class CursoDAO extends AbsCursoDAO<Integer, Curso> implements Serializabl
         stm.setInt(1, id);
         stm.setString(2, value.getCurso_descrip());
         stm.setInt(3, value.getAreaTematica_id().getId_area());
+       // stm.setInt(4, value.getGrupo().getNum_grupo());
     }
 
     @Override
     public void setUpdateParameters(PreparedStatement stm, Integer id, Curso value) throws SQLException {
         stm.setString(1, value.getCurso_descrip());
         stm.setInt(2, id);
+       // stm.setInt(3, value.getAreaTematica_id().getId_area());
+       // stm.setInt(4, value.getGrupo().getNum_grupo());
     }
     
 }
