@@ -16,6 +16,7 @@ import modelo.beans.Horario;
 import modelo.beans.Matricula;
 import modelo.beans.Profesor;
 import modelo.beans.Usuario;
+import modelo.dao.AsignacionCursosDAO;
 import modelo.dao.EspecialBD;
 import modelo.dao.EspecialDAO;
 import modelo.dao.EstudianteDAO;
@@ -47,14 +48,15 @@ public class Modelo_bd {
 
             //DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             //ProfesorDAO bd = new ProfesorDAO();
-            MatriculaDAO bd = new MatriculaDAO();
-            Matricula value = new Matricula();
-            Estudiante e = new Estudiante();
-            e.setId_estudiante(122223333);
-            value.setEstudiante_id(e);
-            System.out.println(bd.listAll().size());
+            //MatriculaDAO bd = new MatriculaDAO();
+            //Matricula value = new Matricula();
+            //Estudiante e = new Estudiante();
+            //e.setId_estudiante(122223333);
+            //value.setEstudiante_id(e);
+            //System.out.println(bd.listAll().size());
             //mostrarListaCursos(bd);
-            
+            AsignacionCursosDAO bd = new AsignacionCursosDAO();
+            System.out.println(bd.listAll().size());
             /*Usuario u = new Usuario();
             u.setId_usuario("4892");*/
 

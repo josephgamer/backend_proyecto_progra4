@@ -62,6 +62,23 @@ public class Grupo implements Serializable {
         return "Grupo{" + "num_grupo=" + num_grupo + ", curso_id=" + curso_id + ", profesor_id=" + profesor_id + '}';
     }
     
+    public String toStringHTML() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getProfesor_id().getId_profesor()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getNum_grupo()));
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getCurso_id().getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getCurso_id().getCurso_descrip()));
+        r.append(String.format(
+                "\t\t\t\t<td><form action='%s'><button name='id_numGrupo' value='%d' >Ver Estudiantes</button></td></form>\n",
+                "VerEstudiantes.jsp",
+                getCurso_id().getId_curso()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+    
     private int num_grupo;
     private Curso curso_id;
     private Profesor profesor_id;

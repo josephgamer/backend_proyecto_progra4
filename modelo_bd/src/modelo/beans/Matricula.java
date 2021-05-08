@@ -83,6 +83,27 @@ public class Matricula implements Serializable{
         this.estado_id = estado_id;
     }
     
+    public String toStringHTMLActualizarNota() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getEstudiante_id().getId_estudiante()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEstudiante_id().getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEstudiante_id().getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEstudiante_id().getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getNota()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEstado_id().getEst_descripcion()));
+
+        
+        r.append(String.format("\t\t\t\t<td><form action='%s'><input type='%s' name='%s'>\n","ServicioNota" ,"number","nota"));
+        r.append(String.format(
+                "\t\t\t\t<button name='cedula' value='%d' >Actualizar Nota</button></td></form>\n",
+                getEstudiante_id().getId_estudiante()));
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+    
     private int matricula_id;
     private int grupo_num;
     private int curso_id;
