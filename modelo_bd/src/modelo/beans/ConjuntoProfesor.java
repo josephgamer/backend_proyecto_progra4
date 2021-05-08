@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.dao.ProfesorDAO;
+import modelo.dao.UsuarioDAO;
 
 /**
  *
@@ -19,16 +20,32 @@ import modelo.dao.ProfesorDAO;
 
 public class ConjuntoProfesor implements Serializable {
 
-    public ConjuntoProfesor() {
+//    public ConjuntoProfesor() {
+//        this.profesores = null;
+//        try {
+//            this.profesores = new ProfesorDAO();
+//        } catch (Exception ex) {
+//            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+//        }
+//    }
+    
+        public ConjuntoProfesor() {
         this.profesores = null;
+        this.user = null;
         try {
             this.profesores = new ProfesorDAO();
+            this.user = new UsuarioDAO();
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
     }
 
     public void agregar(Profesor nuevoProfesor) throws SQLException, IOException {
+        profesores.add(nuevoProfesor.getId_profesor(), nuevoProfesor);
+    }
+    
+    public void agregar2(Profesor nuevoProfesor) throws SQLException, IOException {
+         user.add(nuevoProfesor.getUsuario_id().getId_usuario(), nuevoProfesor.getUsuario_id());
         profesores.add(nuevoProfesor.getId_profesor(), nuevoProfesor);
     }
 
@@ -180,4 +197,5 @@ public class ConjuntoProfesor implements Serializable {
     }
 
     private ProfesorDAO profesores;
+    private UsuarioDAO user;
 }

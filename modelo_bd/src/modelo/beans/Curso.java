@@ -77,6 +77,7 @@ public class Curso implements Serializable{
 
         r.append(String.format("\t\t\t\t<td>%d</td>\n", getId_curso()));
         r.append(String.format("\t\t\t\t<td>%s</td>\n", getCurso_descrip()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getAreaTematica_id().getTematica_descrip()));
 
         r.append("\t\t\t</tr>\n");
         return r.toString();

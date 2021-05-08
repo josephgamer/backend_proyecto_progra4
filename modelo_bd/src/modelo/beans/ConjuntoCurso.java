@@ -285,6 +285,49 @@ public class ConjuntoCurso implements Serializable {
 
         return r.toString();
     }
+     
+     ////////////////77
+     
+     
+     
+      public String toStringHTMLBusquedaPrueba(String descripcion) {
+        String minuscula = "";
+        String result = "";
+        if (!descripcion.isEmpty()) {
+            minuscula = descripcion.toLowerCase();
+            char[] arr = minuscula.toCharArray();
+            arr[0] = Character.toUpperCase(arr[0]);
+            result = new String(arr);
+        }
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaCursos\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Materia del curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Area Tematica del curso"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Curso> t = getListaCursos();
+        for (Curso c : t) {
+            if (c.getAreaTematica_id().getTematica_descrip().equals(result)) {
+                r.append(c.toStringHTML());
+            }
+
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
+     
+     
+     //////////////////
     
     public String toStringHTML3() {
         StringBuilder r = new StringBuilder();
