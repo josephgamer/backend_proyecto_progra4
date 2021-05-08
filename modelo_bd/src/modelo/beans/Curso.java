@@ -18,12 +18,19 @@ public class Curso implements Serializable{
         this.id_curso = id_curso;
         this.curso_descrip = curso_descrip;
     }
-
-    public Curso(int id_curso, String curso_descrip, AreaTematica areaTematica_id) {
+    
+     public Curso(int id_curso, String curso_descrip, AreaTematica areaTematica_id) {
         this.id_curso = id_curso;
         this.curso_descrip = curso_descrip;
         this.areaTematica_id = areaTematica_id;
     }
+
+//    public Curso(int id_curso, String curso_descrip, AreaTematica areaTematica_id, Grupo grupo) {
+//        this.id_curso = id_curso;
+//        this.curso_descrip = curso_descrip;
+//        this.areaTematica_id = areaTematica_id;
+//        this.grupo = grupo;
+//    }
 
     public Curso() {
         this.id_curso = 0;
@@ -53,6 +60,16 @@ public class Curso implements Serializable{
     public void setAreaTematica_id(AreaTematica areaTematica_id) {
         this.areaTematica_id = areaTematica_id;
     }
+
+//    public Grupo getGrupo() {
+//        return grupo;
+//    }
+//
+//    public void setGrupo(Grupo grupo) {
+//        this.grupo = grupo;
+//    }
+    
+    
     
      public String toStringHTML() {
         StringBuilder r = new StringBuilder();
@@ -64,9 +81,23 @@ public class Curso implements Serializable{
         r.append("\t\t\t</tr>\n");
         return r.toString();
     }
+     
+     public String toStringHTMLAdmin() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+        
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getCurso_descrip()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getAreaTematica_id().getTematica_descrip()));
+        //r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo().getNum_grupo()));
+        //getGrupo().getNum_grupo();
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
 
 
     private int id_curso;
     private String curso_descrip;
     private AreaTematica areaTematica_id;
+    //private Grupo grupo;
 }
