@@ -131,6 +131,37 @@ public class ConjuntoCurso implements Serializable {
 
         return r.toString();
     }
+    
+    public String toStringHTML4() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaCursos\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Dia"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Hora"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Grupo"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Numero de Curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre Profesor"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Primer Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Segundo Apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Materia del curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Area Tematica del curso"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Horario> t = getListaHoraiosCursos();
+        for (Horario c : t) {
+            r.append(c.toStringHTMLAdmin());
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
 
     public String toStringHTMLBusqueda(String descripcion) {
         String minuscula = "";
@@ -390,6 +421,11 @@ public class ConjuntoCurso implements Serializable {
         return toStringHTMLAdmin();
     }
     
+    public String getTabla4() {
+        return toStringHTML4();
+    }
+    
+  
     public List<Curso> getListaCursos(){
         try {
             return cursos.listAll();

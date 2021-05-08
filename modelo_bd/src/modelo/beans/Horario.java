@@ -109,6 +109,25 @@ public class Horario implements Serializable {
         return r.toString();
     }
     
+    public String toStringHTMLAdmin() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getDia()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getHora()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getNum_grupo()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getId_curso()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getNombre()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido1()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num().getProfesor_id().getApellido2()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getCurso_descrip()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_curso_id().getAreaTematica_id().getTematica_descrip()));
+        
+
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+    
     public String toStringHTML2() {
         StringBuilder r = new StringBuilder();
         r.append("\t\t\t<tr>\n");
