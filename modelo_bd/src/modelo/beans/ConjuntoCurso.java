@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.dao.AreaTematicaDAO;
 import modelo.dao.CursoDAO;
 import modelo.dao.EspecialDAO;
 
@@ -25,6 +26,7 @@ public class ConjuntoCurso implements Serializable {
         try {
             this.cursos = new CursoDAO();
             this.especial = new EspecialDAO();
+            this.areas = new AreaTematicaDAO();
         } catch (Exception ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
@@ -444,7 +446,14 @@ public class ConjuntoCurso implements Serializable {
         }
         return null;
     }
+    
+    /// Agregar la Tematica (para no crear una clase innecesaria)
+    public int  agregarTematica(AreaTematica nuevaTematica) throws SQLException, IOException {
+        return areas.add(nuevaTematica);
+    }
+    
 
+    private AreaTematicaDAO areas;
     private CursoDAO cursos;
     private EspecialDAO especial;
 }

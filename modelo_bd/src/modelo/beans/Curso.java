@@ -24,6 +24,12 @@ public class Curso implements Serializable{
         this.curso_descrip = curso_descrip;
         this.areaTematica_id = areaTematica_id;
     }
+     
+       public Curso(int id_curso, String curso_descrip, int areaTematica_id) {
+        this.id_curso = id_curso;
+        this.curso_descrip = curso_descrip;
+        this.idTematica = areaTematica_id;
+    }
 
 //    public Curso(int id_curso, String curso_descrip, AreaTematica areaTematica_id, Grupo grupo) {
 //        this.id_curso = id_curso;
@@ -61,6 +67,14 @@ public class Curso implements Serializable{
         this.areaTematica_id = areaTematica_id;
     }
 
+        public int getIdTematica() {
+        return idTematica;
+    }
+
+    public void setIdTematica(int idTematica) {
+        this.idTematica = idTematica;
+    }
+    
 //    public Grupo getGrupo() {
 //        return grupo;
 //    }
@@ -98,5 +112,6 @@ public class Curso implements Serializable{
     private int id_curso;
     private String curso_descrip;
     private AreaTematica areaTematica_id;
+    private int idTematica;
     //private Grupo grupo;
 }

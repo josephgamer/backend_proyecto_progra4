@@ -55,4 +55,9 @@ public class ConjuntoGrupo implements Serializable{
         }
         return null;
     }
+    
+        //Nuevo
+    public void agregar(Grupo nuevoGrupo) throws SQLException, IOException {
+        grupo.add(nuevoGrupo.getNum_grupo(), nuevoGrupo);
+    }
 }

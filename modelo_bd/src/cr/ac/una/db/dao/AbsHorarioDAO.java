@@ -73,6 +73,21 @@ public abstract class AbsHorarioDAO<K, V> implements DAO<K, V> {
         }
     }
 
+        ////////////Prueba        
+        public int getLast() throws SQLException{
+        int lastId = 0;
+        
+        try (Connection cnx = db.getConnection();
+                Statement stm = cnx.createStatement();
+                ResultSet rs = stm.executeQuery(getCRUD().getLastHorario())) {
+            if (rs.next()) {
+                lastId = rs.getInt("seq");
+            }
+        }
+        return lastId;
+    }
+////////////
+    
     @Override
     public void delete(K id) throws SQLException, IOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

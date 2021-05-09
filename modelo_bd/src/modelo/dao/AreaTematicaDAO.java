@@ -29,7 +29,7 @@ public class AreaTematicaDAO extends AbsAreaTematicaDAO <Integer, AreaTematica>{
     public AreaTematica getRecord(ResultSet rs) throws SQLException {
         return new AreaTematica(
                 rs.getInt("id_area"),
-                rs.getString("descripcion")
+                rs.getString("descripcion_area")
         );
     }
 
@@ -44,5 +44,13 @@ public class AreaTematicaDAO extends AbsAreaTematicaDAO <Integer, AreaTematica>{
         stm.setString(1, value.getTematica_descrip());
         stm.setInt(2, id);
     }
+    
+           ///
+    @Override
+        public void setAddParameters(PreparedStatement stm, AreaTematica value) throws SQLException{
+        stm.setString(1, value.getTematica_descrip());
+        
+        }
+        ///
     
 }
