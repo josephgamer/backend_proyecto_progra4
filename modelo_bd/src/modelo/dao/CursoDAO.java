@@ -36,7 +36,7 @@ public class CursoDAO extends AbsCursoDAO<Integer, Curso> implements Serializabl
         //grupo.setNum_grupo(rs.getInt("grupo_num")); ERROR
         return new Curso(
                 rs.getInt("id_curso"),
-                rs.getString("descripcion"),
+                rs.getString("descripcion"), //En el viejo no aparece _area
                 area
           //      grupo
         );
@@ -46,7 +46,7 @@ public class CursoDAO extends AbsCursoDAO<Integer, Curso> implements Serializabl
     public void setAddParameters(PreparedStatement stm, Integer id, Curso value) throws SQLException {
         stm.setInt(1, id);
         stm.setString(2, value.getCurso_descrip());
-        stm.setInt(3, value.getAreaTematica_id().getId_area());
+        stm.setInt(3, value.getIdTematica());
        // stm.setInt(4, value.getGrupo().getNum_grupo());
     }
 

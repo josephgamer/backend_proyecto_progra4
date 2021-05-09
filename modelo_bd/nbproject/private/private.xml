@@ -4,6 +4,35 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Esteban/Desktop/General/progra%204/proyectos/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/NotaCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/EspecialDAO.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/ProfesorCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/AreaTematicaCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Curso.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/UsuarioCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/ConjuntoUsuario.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/ConjuntoGrupo.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/AreaTematicaDAO.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/cr/ac/una/db/Database.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Grupo.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/AdministradoresBD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Estudiante.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Horario.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/CursoCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Usuario.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/EspecialBD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Profesor.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/Rol.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/HorarioDAO.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/cr/ac/una/db/dao/AbsAreaTematicaDAO.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/EstudianteCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/AreasTematicasBD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/cr/ac/una/db/dao/crud/AbstractCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/ConjuntoProfesor.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/ConjuntoCurso.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/EspecialCRUD.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/beans/ConjuntoEstudiantes.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/CursoDAO.java</file>
+            <file>file:/C:/Users/YENDRI/Dropbox/Mi%20PC%20(LAPTOP-HBDHCDCT)/Documents/NetBeansProjects/backend_proyecto_progra4/modelo_bd/src/modelo/dao/crud/NotaCRUD.java</file>
         </group>
     </open-files>
 </project-private>

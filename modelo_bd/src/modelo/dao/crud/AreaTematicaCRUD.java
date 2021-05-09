@@ -20,7 +20,7 @@ public class AreaTematicaCRUD extends AbstractCRUD{
 
     @Override
     public String getAddCmd() {
-        return ADD_CMD;
+        return ADD_CMDP;
     }
 
     @Override
@@ -40,17 +40,17 @@ public class AreaTematicaCRUD extends AbstractCRUD{
     
     protected static final String LIST_CMD
             = "SELECT "
-            + "id_area, descripcion "
+            + "id_area, descripcion_area"
             + "FROM area_tematica; ";
     
     protected static final String ADD_CMD
             = "INSERT INTO eif209_2021_01.area_tematica "
-            + "(id_area, descripcion) "
+            + "(id_area, descripcion_area) "
             + "VALUES (?, ?); ";
     
     protected static final String UPDATE_CMD
             = "UPDATE area_tematica "
-            + "SET descripcion = ? "
+            + "SET descripcion_area = ? "
             + "WHERE id_area = ?; ";
     
 }
