@@ -77,7 +77,6 @@ public class ConjuntoProfesor implements Serializable {
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre"));
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Correo"));
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Telefono"));
-        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Especialidad"));
         r.append("\t\t\t<tr>\n");
         r.append("\t\t</thead>\n");
 
@@ -117,7 +116,6 @@ public class ConjuntoProfesor implements Serializable {
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre"));
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Correo"));
         r.append(String.format("\t\t\t\t<th>%s</th>\n", "Télefono"));
-        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Especialidad"));
         r.append("\t\t\t<tr>\n");
         r.append("\t\t</thead>\n");
 
