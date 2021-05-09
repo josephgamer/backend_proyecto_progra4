@@ -43,7 +43,7 @@ public class ConjuntoNota implements Serializable {
 
     public String toStringHTMLVerEstudiantes(int numGrupo) {
         StringBuilder r = new StringBuilder();
-        r.append("\t<table class=\"tablaPersonas\">\n");
+        r.append("\t<table class=\"tablaPonerNota\">\n");
 
         r.append("\t\t<thead>\n");
         r.append("\t\t\t<tr>\n");

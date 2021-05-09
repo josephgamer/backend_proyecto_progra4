@@ -51,6 +51,7 @@ public class NotaDAO extends AbsNotaDAO<Integer,Matricula>{
         stm.setInt(1, value.getNota());
         stm.setInt(2, value.getEstado_id().getId_estado());
         stm.setInt(3, id);
+        stm.setInt(4, value.getGrupo_num());
     }
     
 }

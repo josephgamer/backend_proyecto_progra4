@@ -47,6 +47,6 @@ public class NotaCRUD extends AbstractCRUD {
     protected static final String UPDATE_CMD
             = "UPDATE matricula "
             + "SET nota = ?, estado_id = ? "
-            + "WHERE estudiante_id = ?; ";
+            + "WHERE estudiante_id = ? and grupo_num = ?; ";
 
 }
