@@ -20,7 +20,7 @@ public class EspecialidadCRUD extends AbstractCRUD{
 
     @Override
     public String getAddCmd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ADD_CMD;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class EspecialidadCRUD extends AbstractCRUD{
     
     protected static final String ADD_CMD
             = "INSERT INTO eif209_2021_01.especialidad "
-            + "(profesor_id_profesor, area_tematica__id) "
+            + "(profesor_id_profesor, area_tematica_id) "
             + "VALUES (?, ?); ";
     
 }

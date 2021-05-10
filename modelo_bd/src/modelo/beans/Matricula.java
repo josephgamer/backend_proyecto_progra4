@@ -104,6 +104,19 @@ public class Matricula implements Serializable{
         return r.toString();
     }
     
+    public String toStringHistorial() {
+        StringBuilder r = new StringBuilder();
+        r.append("\t\t\t<tr>\n");
+
+        r.append(String.format("\t\t\t\t<td>%d</td>\n", getEstudiante_id().getId_estudiante()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getCurso_id()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getGrupo_num()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getNota()));
+        r.append(String.format("\t\t\t\t<td>%s</td>\n", getEstado_id().getEst_descripcion()));
+        r.append("\t\t\t</tr>\n");
+        return r.toString();
+    }
+    
     private int matricula_id;
     private int grupo_num;
     private int curso_id;

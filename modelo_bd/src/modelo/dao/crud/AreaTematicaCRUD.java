@@ -41,7 +41,7 @@ public class AreaTematicaCRUD extends AbstractCRUD{
     protected static final String LIST_CMD
             = "SELECT "
             + "id_area, descripcion_area"
-            + "FROM area_tematica; ";
+            + " FROM area_tematica; ";
     
     protected static final String ADD_CMD
             = "INSERT INTO eif209_2021_01.area_tematica "

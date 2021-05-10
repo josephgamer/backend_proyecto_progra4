@@ -39,6 +39,37 @@ public class ConjuntoHistorial implements Serializable{
         return result;
     }
     
+    public String mostrarHistorial(int cedula) {
+        StringBuilder r = new StringBuilder();
+        r.append("\t<table class=\"tablaHistorial\">\n");
+
+        r.append("\t\t<thead>\n");
+        r.append("\t\t\t<tr>\n");
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Id"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nombre "));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Primer apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Segundo apellido"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Nota"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "Estatus del curso"));
+        r.append(String.format("\t\t\t\t<th>%s</th>\n", "&nbsp;"));
+        r.append("\t\t\t<tr>\n");
+        r.append("\t\t</thead>\n");
+
+        r.append("\t\t<tbody>\n");
+        List<Matricula> t = todoHistorial();
+        for (Matricula p : t) {
+            if (p.getEstudiante_id().getId_estudiante() == cedula) {
+                r.append(p.toStringHistorial());
+            }
+        }
+        r.append("\t\t</tbody>\n");
+
+        r.append("\t\t<tfoot></tfoot>\n");
+        r.append("\t</table>\n");
+
+        return r.toString();
+    }
+    
     List<Matricula> todoHistorial() {
         try {
             return matricula.listAll();
